@@ -5,9 +5,20 @@
 ## Requirements
 - Go 1.23.4
 
+## Discord Bot Setup
+Required scopes:
+- `applications.commands`
+- `bot`
+
+Required permissions:
+- Read Message History
+- Send Messages
+- Send Messages in Threads
+- View Channels
+
 ## Usage and installation
 
-> [! WARNING]
+> [!WARNING]
 > This part is under improvements.
 
 Compile it in your machine with the command below.
@@ -17,9 +28,13 @@ go build -o main
 ```
 
 Run with the command below. 
-NOTE: Make sure to run with `reasons.json` exists in current working directory.
+
+> [!WARNING]
+> Make sure to run with `reasons.json` exists in current working directory.
 ```
 export DISCORD_TOKEN=<your-discord-bot-token-here>
 ./main
 ```
 
+## Available commands
+- `/no`: returns various negative responses 
