@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -53,8 +54,14 @@ func main() {
 		return
 	}
 
+	defer client.Close(context.TODO())
+
 	if _, err = client.Rest().SetGlobalCommands(client.ApplicationID(), commands); err != nil {
 		slog.Error("error while registering commands", slog.Any("err", err))
+	}
+
+	if err = client.OpenGateway(context.TODO()); err != nil {
+		slog.Error("error while connecting to gateway", slog.Any("err", err))
 	}
 
 	slog.Info("bot is now running.")
